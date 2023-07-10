@@ -6,5 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent {
+  text!:string;
+  day!:string;
+  reminder: boolean = false;
 
+  onSubmit() {
+    if (!this.text) {
+      alert('Please add a task!')
+      return;
+    }
+    const newTask = {
+      text: this.text,
+      day:this.day,
+      reminder:this.reminder
+    }
+
+    this.text="";
+    this.day = "";
+    this.reminder = false;
+  }
 }
