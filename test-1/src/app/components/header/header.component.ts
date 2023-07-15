@@ -12,7 +12,9 @@ export class HeaderComponent {
   showAddTask!: boolean;
   subscription!: Subscription;
 
-  constructor(private uiService:UiService) {}
+  constructor(private uiService:UiService) {
+    this.subscription = this.uiService.onToggle().subscribe(value => this.showAddTask = value)
+  }
 
   toggleAddTask() {
     this.uiService.toggleAddTask();
